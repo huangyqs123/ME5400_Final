@@ -1,0 +1,11 @@
+<launch>
+    <!-- <arg name="rviz_config" default="$(find tracking)/cfg/tracking.rviz"/>
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(arg rviz_config)"/> -->
+
+    <!-- <node type="camera.py" name="camera_node" pkg="tracking" output="screen"/> -->
+    <node type="tracking_siam.py" name="tracker_siam_node" pkg="tracking" output="screen"/>
+
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="align_depth" value="true"/>
+    </include>
+</launch>
