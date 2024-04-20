@@ -95,18 +95,14 @@ Message generation via `FleetMessages.idl` is done using `dds_idlc` from `Cyclon
 
 </br>
 
-
-### Turtlebot Simulation
-Start a new ROS 1 workspace, and pull it in your default ROS workspace,
-
+### Build the workspace
 ```bash
-mkdir -p ~/catkin_ws/src/turtlebot
-cd ~/catkin_ws/src/turtlebot
-git clone https://github.com/Chronobreakk/5400turtlebot.git
-cd ~/catkin_ws
+cd
+cd ME5400_Final
 catkin_make
 ```
 </br>
+
 
 ### Multi Turtlebot Simulation
 
