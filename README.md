@@ -103,7 +103,7 @@ catkin_make
 
 ### Multi turtlebot Gazebo world
 
-Move ff_ros1_ws out
+Move ff_ros1_ws folder out
 
 ```bash
 cd ~/ME5400_Final
