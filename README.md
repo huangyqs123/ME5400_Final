@@ -5,13 +5,12 @@
 - **[Installation Instructions](#installation-instructions)**
   - [Prerequisites](#prerequisites)
   - [Message Generation](#message-generation)
-  - [Turtlebot Simulation](#turtlebot-simulation)
-  - [Multi Turtlebot Simulation](#multi-turtlebot-simulation)
-  - [Download Scripts](#download-scripts)
+  - [Build the workspace](#build-the-workspace)
+  - [Multi turtlebot Gazebo world](#multi-turtlebot-gazebo-world)
 - **[Examples](#examples)**
-  - [Single Turtlebot Simulation](#single-turtlebot-simulation)
-  - [Multi Turtlebot Simulation](#multi-turtlebot-simulation)
-  - [Scripts For objectfollowing](#scripts-for-objectfollowing)
+  - [Multi turtlebot Tracking Stimulation](#multi-turtlebot-tracking-stimulation)
+  - [Running on ROS WHILL](running-on-ros-whill)
+
 
 
 </br>
@@ -104,7 +103,7 @@ catkin_make
 </br>
 
 
-### Stimulate the tracking in Gazebo
+### Multi turtlebot Gazebo world
 
 Move ff_ros1_ws out
 
@@ -137,27 +136,17 @@ colcon build
 Please remember to source first!!!
 ```bash
 source ~/ff_ros1_ws/install/setup.bash
-source ~/catkin_ws/devel/setup.bash
+source ~/ME5400_Final/devel/setup.bash
+export PYTHONPATH=~/pysot:$PYTHONPATH
 ```
 
-### Single turtlebot Simulation:
-```bash
-# Open the gazebo world
-roslaunch turtlebot3_gazebo turtlebot3_world.launch 
-
-# Navigate with pre-build map
-roslaunch turtlebot3_navigation turtlebot3_navigation.launch 
-
-# Navigate without pre-build map
-roslaunch turtlebot3_navigation withoutmap_nav.launch
-```
-
-</br>
-
-### Multi turtlebot Simulation:
+### Multi turtlebot Tracking Stimulation
 The default turtlebot3 model is set as waffle
+```bash
+export TURTLEBOT3_MODEL=waffle
+```
 
-You can run this file by follow steps:
+Launch the Gazebo World:
 ```bash
 # Navigate with pre-build map
 roslaunch ff_examples_ros1 multi_turtlebot3_ff.launch
@@ -166,28 +155,56 @@ roslaunch ff_examples_ros1 multi_turtlebot3_ff.launch
 roslaunch ff_examples_ros1 multi_nomap.launch 
 ```
 
-</br>
-
-
-### Scripts for objectfollowing:
-You need to launch multi turtlebot environment first
-
-You can run this file by follow steps:
+Run the Tracking Node:
 ```bash
-cd ~/object-following-scripts
+rosrun tracking tracking.py
+```
+
+Run the Following scripts:
+```bash
+cd ~/ME5400_Final/following
+
 # Following use pure cmd_vel control
 python3 Cmdvel_following.py
 
 # Following using move_base
 python3 movebase_following.py
+
 ```
-For the ARC ROS Whill，please run:
+
+### Running on ROS WHILL
+Setup the ROS_WHILL drive accroding to [ros_whill_arc](https://github.com/legubiao/ros_whill_arc).
+Setup RealSense D435i drive. [Help](https://zhuanlan.zhihu.com/p/456408345).
+
+Launch ROS WHILL
 ```bash
-cd ~/object-following-scripts
+roslaunch ros_whill ros_whill.launch
+```
+
+Launch RealSense
+```bash
+roslaunch realsense2_camera rs_camera.launch
+```
+
+Run the Tracking Node with RealSense
+```bash
+rosrun tracking tracking_realsense.py
+```
+
+Run the Following scripts:
+```bash
+cd ~/ME5400_Final/following
+
 # Following use pure cmd_vel control
 python3 Cmdvel_following.py
 
 # Following using move_base
-python3 ROS_whill_following.py
+python3 movebase_following.py
+
 ```
+
+
+
+
+
 
