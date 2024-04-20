@@ -104,16 +104,13 @@ catkin_make
 </br>
 
 
-### Multi Turtlebot Simulation
+### Stimulate the tracking in Gazebo
 
-Start a new ROS 1 workspace, and pull in the necessary repositories,
+Move ff_ros1_ws out
 
 ```bash
-mkdir -p ~/ff_ros1_ws
-cd ~/ff_ros1_ws
-git clone https://github.com/Chronobreakk/ff_ros1_ws.git
-cd ~/ff_ros1_ws/src
-git clone https://github.com/eclipse-cyclonedds/cyclonedds -b releases/0.7.x
+cd ~/ME5400_Final
+mv ff_ros1_ws ..
 ```
 
 Install all the dependencies through `rosdep`,
@@ -123,23 +120,15 @@ cd ~/ff_ros1_ws
 rosdep install --from-paths src --ignore-src --rosdistro noetic -yr
 ```
 
-Source ROS 1 and build,
+Source ROS 1 and build (Run colcon build twice if you had error output for the first time),
 
 ```bash
 cd ~/ff_ros1_ws
 source /opt/ros/noetic/setup.bash
 colcon build
+colcon build
 ```
 
-</br>
-
-### Download Scripts
-
-```bash
-mkdir -p ~/object-following-scripts
-cd ~/object-following-scripts
-git clone https://github.com/Chronobreakk/Object-following-with-move_base.git
-```
 </br>
 </br>
 
