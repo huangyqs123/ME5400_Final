@@ -24,9 +24,7 @@ Here is the demo video we apply this Project to the NUS ARC Whill
 
 
 ## About
-This project is based on the NUS ME5400A Robotics Project 1, it aims make one turtlebot following another.
-
-This repo is the python scripts file repo of these project. This project also includes two other repos: [Turtlebot Simulation](https://github.com/Chronobreakk/5400turtlebot) and [Multiturtlebot Simulation](https://github.com/Chronobreakk/ff_ros1_ws).
+This project is based on the NUS ME5400A Robotics Project 1, it aims to develope and Autonomous Driving Platform with Tracking Function.
 
 
 </br>
