@@ -39,6 +39,36 @@ This repo is the python scripts file repo of these project. This project also in
 
 * [Ubuntu 20.04 LTS](https://releases.ubuntu.com/20.04/)
 * [ROS1 - Noetic](https://wiki.ros.org/noetic)
+* [Pysot](https://github.com/STVIR/pysot)
+
+Install Pysot,
+```bash
+cd
+git clone https://github.com/STVIR/pysot.git
+```
+
+Setup Pysot environment,
+```bash
+pip install numpy==1.21.0
+pip install pytorch==2.2.1
+pip install opencv-python
+pip install pyyaml yacs tqdm colorama matplotlib cython tensorboardX
+```
+
+Build Pysot extensions,
+```bash
+cd ~/pysot
+python setup.py build_ext --inplace
+```
+
+Run this command every time before you run the tracking node, or add it in to ~/.bashrc
+```bash
+export PYTHONPATH=~/pysot:$PYTHONPATH
+```
+
+Download the Pysot model from [Here](https://drive.google.com/drive/folders/1lOOTedwGLbGZ7MAbqJimIcET3ANJd29A)
+And put it into ~/ME5400_Final/src/tracking/scripts/pysot/siamrpn_r50_l234_dwxcorr_lt
+
 
 Install all non-ROS prerequisite packages,
 
